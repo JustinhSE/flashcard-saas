@@ -2,7 +2,7 @@ import { DevTool } from '@hookform/devtools';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-
+import Stripe from 'stripe';
 import Button from '../components/Button';
 import Counter from '../components/Counter';
 import Layout from '../components/Layout';
@@ -33,8 +33,8 @@ export default function Contact() {
             <DevTool control={control} placement="top-left" />
 
             <section className="relative text-gray-600 body-font">
-                <div className="container flex flex-col justify-center py-24 px-5 mx-auto">
-                    <div className="flex relative z-10 flex-col p-8 mx-auto mt-10 bg-white rounded-lg shadow-md">
+                <div className="container flex flex-col justify-center px-5 py-24 mx-auto">
+                    <div className="relative z-10 flex flex-col p-8 mx-auto mt-10 bg-white rounded-lg shadow-md">
                         <h2 className="mb-1 text-lg font-medium text-gray-900 title-font">
                             Feedback
                         </h2>
@@ -53,7 +53,7 @@ export default function Contact() {
                                         {...register('email', {
                                             required: true,
                                         })}
-                                        className="py-1 px-3 w-full text-base leading-8 text-gray-700 bg-white rounded border border-gray-300 transition-colors duration-200 ease-in-out outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                                        className="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
                                     />
                                 </label>
                                 {errors.email && (
@@ -73,7 +73,7 @@ export default function Contact() {
                                         {...register('message', {
                                             required: true,
                                         })}
-                                        className="py-1 px-3 w-full h-32 text-base leading-6 text-gray-700 bg-white rounded border border-gray-300 transition-colors duration-200 ease-in-out outline-none resize-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                                        className="w-full h-32 px-3 py-1 text-base leading-6 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none resize-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
                                         defaultValue=""
                                     />
                                 </label>
