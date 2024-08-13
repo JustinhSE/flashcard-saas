@@ -32,10 +32,6 @@ if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
 
 export default NextAuth({
     providers: [
-        EmailProvider({
-            server: process.env.EMAIL_SERVER,
-            from: process.env.EMAIL_FROM,
-        }),
         ...providers,
     ],
     adapter: PrismaAdapter(prisma),
