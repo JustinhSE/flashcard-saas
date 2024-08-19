@@ -46,7 +46,7 @@ type Props = Record<string, unknown> &
     ButtonProps &
     ButtonHTMLAttributes<HTMLButtonElement>;
 
-function Button({ children, size, type = 'button', ...rest }: Props) {
+export const Button = ({ children, size, type = 'button', ...rest }: Props) => {
     return (
         // eslint-disable-next-line react/button-has-type
         <button {...rest} type={type} className={buttonStyles({ size })}>
@@ -54,5 +54,3 @@ function Button({ children, size, type = 'button', ...rest }: Props) {
         </button>
     );
 }
-
-export default Button;

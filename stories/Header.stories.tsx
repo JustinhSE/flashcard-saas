@@ -1,6 +1,6 @@
 import { StoryFn } from '@storybook/react';
 
-import Header, { HeaderProps } from '../components/Header';
+import { Header, HeaderProps } from '../components/Header';
 
 export default {
     title: 'Header',

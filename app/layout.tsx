@@ -1,25 +1,21 @@
-import Script from 'next/script';
 import { ReactNode } from 'react';
+import { Providers } from '@/providers';
+import { Header } from '@/components/Header';
 
 function RootLayout({
-    // Layouts must accept a children prop.
-    // This will be populated with nested layouts or pages
     children,
-}: {
-    readonly children: ReactNode;
-}) {
+}: Readonly<{ children: ReactNode }>) {
     return (
         <html lang="en">
             <head>
-                <Script
-                    async={true}
-                    id="adsbygoogle"
-                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5337133458846513"
-                    crossOrigin="anonymous"
-                />
-                <title>NextJs Starter App</title>
+                <title>Flashcard SaaS</title>
             </head>
-            <body>{children}</body>
+            <body>
+                <Providers>
+                    <Header links={[{ title: 'Home', url: '/' }, { title: 'About', url: '/about' }, { title: 'Contact', url: '/contact' }]} />
+                    {children}
+                </Providers>
+            </body>
         </html>
     );
 }
